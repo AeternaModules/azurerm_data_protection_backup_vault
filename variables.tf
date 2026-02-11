@@ -25,9 +25,9 @@ EOT
     redundancy                   = string
     resource_group_name          = string
     cross_region_restore_enabled = optional(bool)
-    immutability                 = optional(string, "Disabled")
-    retention_duration_in_days   = optional(number, 14)
-    soft_delete                  = optional(string, "On")
+    immutability                 = optional(string) # Default: "Disabled"
+    retention_duration_in_days   = optional(number) # Default: 14
+    soft_delete                  = optional(string) # Default: "On"
     tags                         = optional(map(string))
     identity = optional(object({
       identity_ids = optional(set(string))
