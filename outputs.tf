@@ -1,49 +1,45 @@
-output "data_protection_backup_vaults" {
-  description = "All data_protection_backup_vault resources"
-  value       = azurerm_data_protection_backup_vault.data_protection_backup_vaults
-}
 output "data_protection_backup_vaults_cross_region_restore_enabled" {
-  description = "List of cross_region_restore_enabled values across all data_protection_backup_vaults"
-  value       = [for k, v in azurerm_data_protection_backup_vault.data_protection_backup_vaults : v.cross_region_restore_enabled]
+  description = "Map of cross_region_restore_enabled values across all data_protection_backup_vaults, keyed the same as var.data_protection_backup_vaults"
+  value       = { for k, v in azurerm_data_protection_backup_vault.data_protection_backup_vaults : k => v.cross_region_restore_enabled }
 }
 output "data_protection_backup_vaults_datastore_type" {
-  description = "List of datastore_type values across all data_protection_backup_vaults"
-  value       = [for k, v in azurerm_data_protection_backup_vault.data_protection_backup_vaults : v.datastore_type]
+  description = "Map of datastore_type values across all data_protection_backup_vaults, keyed the same as var.data_protection_backup_vaults"
+  value       = { for k, v in azurerm_data_protection_backup_vault.data_protection_backup_vaults : k => v.datastore_type }
 }
 output "data_protection_backup_vaults_identity" {
-  description = "List of identity values across all data_protection_backup_vaults"
-  value       = [for k, v in azurerm_data_protection_backup_vault.data_protection_backup_vaults : v.identity]
+  description = "Map of identity values across all data_protection_backup_vaults, keyed the same as var.data_protection_backup_vaults"
+  value       = { for k, v in azurerm_data_protection_backup_vault.data_protection_backup_vaults : k => v.identity }
 }
 output "data_protection_backup_vaults_immutability" {
-  description = "List of immutability values across all data_protection_backup_vaults"
-  value       = [for k, v in azurerm_data_protection_backup_vault.data_protection_backup_vaults : v.immutability]
+  description = "Map of immutability values across all data_protection_backup_vaults, keyed the same as var.data_protection_backup_vaults"
+  value       = { for k, v in azurerm_data_protection_backup_vault.data_protection_backup_vaults : k => v.immutability }
 }
 output "data_protection_backup_vaults_location" {
-  description = "List of location values across all data_protection_backup_vaults"
-  value       = [for k, v in azurerm_data_protection_backup_vault.data_protection_backup_vaults : v.location]
+  description = "Map of location values across all data_protection_backup_vaults, keyed the same as var.data_protection_backup_vaults"
+  value       = { for k, v in azurerm_data_protection_backup_vault.data_protection_backup_vaults : k => v.location }
 }
 output "data_protection_backup_vaults_name" {
-  description = "List of name values across all data_protection_backup_vaults"
-  value       = [for k, v in azurerm_data_protection_backup_vault.data_protection_backup_vaults : v.name]
+  description = "Map of name values across all data_protection_backup_vaults, keyed the same as var.data_protection_backup_vaults"
+  value       = { for k, v in azurerm_data_protection_backup_vault.data_protection_backup_vaults : k => v.name }
 }
 output "data_protection_backup_vaults_redundancy" {
-  description = "List of redundancy values across all data_protection_backup_vaults"
-  value       = [for k, v in azurerm_data_protection_backup_vault.data_protection_backup_vaults : v.redundancy]
+  description = "Map of redundancy values across all data_protection_backup_vaults, keyed the same as var.data_protection_backup_vaults"
+  value       = { for k, v in azurerm_data_protection_backup_vault.data_protection_backup_vaults : k => v.redundancy }
 }
 output "data_protection_backup_vaults_resource_group_name" {
-  description = "List of resource_group_name values across all data_protection_backup_vaults"
-  value       = [for k, v in azurerm_data_protection_backup_vault.data_protection_backup_vaults : v.resource_group_name]
+  description = "Map of resource_group_name values across all data_protection_backup_vaults, keyed the same as var.data_protection_backup_vaults"
+  value       = { for k, v in azurerm_data_protection_backup_vault.data_protection_backup_vaults : k => v.resource_group_name }
 }
 output "data_protection_backup_vaults_retention_duration_in_days" {
-  description = "List of retention_duration_in_days values across all data_protection_backup_vaults"
-  value       = [for k, v in azurerm_data_protection_backup_vault.data_protection_backup_vaults : v.retention_duration_in_days]
+  description = "Map of retention_duration_in_days values across all data_protection_backup_vaults, keyed the same as var.data_protection_backup_vaults"
+  value       = { for k, v in azurerm_data_protection_backup_vault.data_protection_backup_vaults : k => v.retention_duration_in_days }
 }
 output "data_protection_backup_vaults_soft_delete" {
-  description = "List of soft_delete values across all data_protection_backup_vaults"
-  value       = [for k, v in azurerm_data_protection_backup_vault.data_protection_backup_vaults : v.soft_delete]
+  description = "Map of soft_delete values across all data_protection_backup_vaults, keyed the same as var.data_protection_backup_vaults"
+  value       = { for k, v in azurerm_data_protection_backup_vault.data_protection_backup_vaults : k => v.soft_delete }
 }
 output "data_protection_backup_vaults_tags" {
-  description = "List of tags values across all data_protection_backup_vaults"
-  value       = [for k, v in azurerm_data_protection_backup_vault.data_protection_backup_vaults : v.tags]
+  description = "Map of tags values across all data_protection_backup_vaults, keyed the same as var.data_protection_backup_vaults"
+  value       = { for k, v in azurerm_data_protection_backup_vault.data_protection_backup_vaults : k => v.tags }
 }
 
