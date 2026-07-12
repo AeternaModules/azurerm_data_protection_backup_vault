@@ -1,3 +1,7 @@
+output "data_protection_backup_vaults_id" {
+  description = "Map of id values across all data_protection_backup_vaults, keyed the same as var.data_protection_backup_vaults"
+  value       = { for k, v in azurerm_data_protection_backup_vault.data_protection_backup_vaults : k => v.id }
+}
 output "data_protection_backup_vaults_cross_region_restore_enabled" {
   description = "Map of cross_region_restore_enabled values across all data_protection_backup_vaults, keyed the same as var.data_protection_backup_vaults"
   value       = { for k, v in azurerm_data_protection_backup_vault.data_protection_backup_vaults : k => v.cross_region_restore_enabled }
