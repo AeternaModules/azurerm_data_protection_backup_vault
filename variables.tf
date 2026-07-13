@@ -25,27 +25,22 @@ EOT
     redundancy                   = string
     resource_group_name          = string
     cross_region_restore_enabled = optional(bool)
-    immutability                 = optional(string) # Default: "Disabled"
-    retention_duration_in_days   = optional(number) # Default: 14
-    soft_delete                  = optional(string) # Default: "On"
+    immutability                 = optional(string)
+    retention_duration_in_days   = optional(number)
+    soft_delete                  = optional(string)
     tags                         = optional(map(string))
     identity = optional(object({
       identity_ids = optional(set(string))
       type         = string
     }))
   }))
-  validation {
-    condition = alltrue([
-      for k, v in var.data_protection_backup_vaults : (
-        can(regex("^[-a-zA-Z0-9]{2,50}$", v.name))
-      )
-    ])
-    error_message = "DataProtection BackupVault name must be 2 - 50 characters long, contain only letters, numbers and hyphens.)."
-  }
   # --- Unconfirmed validation candidates, derived from azurerm_data_protection_backup_vault's provider source ---
   # Not auto-enabled: either a bespoke provider validator we can't safely translate,
   # or a path that crosses a list-typed block (needs its own for_each wrapping).
   # Review, translate into a real validation{} block above, and delete once confirmed.
+  # path: name
+  #   condition: can(regex("^[-a-zA-Z0-9]{2,50}$", value))
+  #   message:   DataProtection BackupVault name must be 2 - 50 characters long, contain only letters, numbers and hyphens.).
   # path: resource_group_name
   #   condition: length(value) <= 90
   #   message:   [from resourcegroups.ValidateName: invalid when len(value) > 90]
