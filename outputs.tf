@@ -12,7 +12,7 @@ output "data_protection_backup_vaults_datastore_type" {
 }
 output "data_protection_backup_vaults_identity" {
   description = "Map of identity values across all data_protection_backup_vaults, keyed the same as var.data_protection_backup_vaults"
-  value       = { for k, v in azurerm_data_protection_backup_vault.data_protection_backup_vaults : k => v.identity if v.identity != null && length(v.identity) > 0 }
+  value       = { for k, v in azurerm_data_protection_backup_vault.data_protection_backup_vaults : k => one(v.identity) if v.identity != null && length(v.identity) > 0 }
 }
 output "data_protection_backup_vaults_immutability" {
   description = "Map of immutability values across all data_protection_backup_vaults, keyed the same as var.data_protection_backup_vaults"
